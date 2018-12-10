@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title> Test Your Math Skills </title>
+    <script>
+
+    /* Input: A simple operation with two numbers, an operator and an answer.
+     * Processing: Compute the operation, and then compare the "real" answer
+     * to the answer the user put in.
+     * Output: Display a message saying whether the answer is correct or not.
+     */
+
+    function isItRight() {
+
+      // Get input from user
+      var firstnum = parseFloat(document.getElementById('input1').value);
+      var operatortype = document.getElementById("operator").value;
+      var secondnum = parseFloat(document.getElementById('input2').value);
+      var answer = parseFloat(document.getElementById('result').value);
+
+      //Calculate the operation and save it as variable rightanswer
+      var rightanswer;
+      if ( operatortype == "+" ) {
+        rightanswer = firstnum + secondnum;
+      }
+
+      else if ( operatortype == "-") {
+          rightanswer = firstnum - secondnum;
+        }
+
+      else if ( operatortype == "*") {
+          rightanswer = firstnum * secondnum;
+        }
+
+      else if ( operatortype == "/") {
+          rightanswer = firstnum / secondnum;
+        }
+
+      //Compare the correct answer to the answer the user put in
+      var text;
+      if ( rightanswer == answer) {
+          text = "Correct! Good job.";
+        }
+      else {
+          text = "Incorrect! Try again.";
+        }
+
+      //Display message back to user
+      document.getElementById('outputDiv').innerHTML = text;
+}
+    </script>
+  </head>
+
+  <body>
+    <h1> Test Your Math Skills! </h1>
+    <input type="text" id="input1">
+    <input type="text" id="operator">
+    <input type="text" id="input2">
+    =
+    <input type="text" id="result"> <br>
+
+    <button type="button" onclick="isItRight()">Check</button>
+    <div id="outputDiv"></div>
+  </body>
+</html>
